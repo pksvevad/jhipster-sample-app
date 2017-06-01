@@ -87,7 +87,7 @@ pipeline {
     stage('Build Staging') {
         agent any
             environment {
-                STAGING_AUTH = credentials('staging')
+                STAGING_AUTH = credentials('env_key')
             }
             when {
                 anyOf {
@@ -121,7 +121,7 @@ pipeline {
     stage('Build Production') {
             agent any
             environment {
-                PROD_AUTH = credentials('production')
+                PROD_AUTH = credentials('env_key')
             }
             when {
                 branch "release-*"
